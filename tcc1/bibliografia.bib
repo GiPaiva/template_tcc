@@ -25,214 +25,256 @@
 % Formato ABNT: SOBRENOME, Nome. Titulo: subtitulo. Edicao. Local: Editora, Ano.
 % ---------------------------------------------------------------
 
-% Livro com um autor
-@book{Wazlawick2020,
-  author    = {Raul Sidnei Wazlawick},
-  title     = {Metodologia de Pesquisa para Ciência da Computação},
-  publisher = {Elsevier},
-  year      = {2020},
-  edition   = {3},
-  address   = {Rio de Janeiro}
-}
-
-% Livro com dois autores
-@book{Pressman2016,
-  author    = {Roger S. Pressman and Bruce R. Maxim},
-  title     = {Engenharia de Software: uma abordagem profissional},
-  publisher = {McGraw-Hill},
-  year      = {2016},
-  edition   = {8},
-  address   = {Porto Alegre}
-}
-
-% Livro com um autor (outro exemplo)
-@book{Sommerville2019,
-  author    = {Ian Sommerville},
-  title     = {Engenharia de Software},
-  publisher = {Pearson},
-  year      = {2019},
-  edition   = {10},
-  address   = {São Paulo}
-}
-
-% Livro traduzido
-@book{Gamma2000,
-  author    = {Erich Gamma and Richard Helm and Ralph Johnson and John Vlissides},
-  title     = {Padrões de Projeto: soluções reutilizáveis de software orientado a objetos},
-  publisher = {Bookman},
-  year      = {2000},
-  address   = {Porto Alegre},
-  note      = {Tradução de Luiz A. Meirelles Salgado}
-}
-
-% Livro em inglês
-@book{Cormen2009,
-  author    = {Thomas H. Cormen and Charles E. Leiserson and Ronald L. Rivest and Clifford Stein},
-  title     = {Introduction to Algorithms},
-  publisher = {MIT Press},
-  year      = {2009},
-  edition   = {3},
-  address   = {Cambridge}
+@book{Nigrini2012,
+  author    = {Mark J. Nigrini},
+  title     = {Benford's Law: Applications for Forensic Accounting, Auditing, and Fraud Detection},
+  publisher = {John Wiley \& Sons},
+  year      = {2012},
+  address   = {Hoboken}
 }
 
 
 % ---------------------------------------------------------------
-% EXEMPLOS DE ARTIGOS DE PERIODICOS
-% Formato ABNT: SOBRENOME, Nome. Titulo do artigo. Periodico, Local, v. X, n. Y, p. XX-YY, ano.
+% ARTIGOS DE PERIÓDICOS
+% Formato ABNT: SOBRENOME, Nome. Título. Periódico, v. X, n. Y, p. XX–YY, ano. DOI.
 % ---------------------------------------------------------------
 
-% Artigo em periódico nacional
-@article{Silva2022,
-  author  = {João Carlos Silva and Maria Aparecida Santos},
-  title   = {Aplicação de técnicas formais na validação de sistemas distribuídos},
-  journal = {Revista Brasileira de Computação Aplicada},
-  year    = {2022},
-  volume  = {14},
-  number  = {2},
-  pages   = {45--58},
-  doi     = {10.5335/rbca.v14i2.12345}
+% --- Clássicos e referências seminais ---
+
+@article{Benford1938,
+  author  = {Frank Benford},
+  title   = {The law of anomalous numbers},
+  journal = {Proceedings of the American Philosophical Society},
+  year    = {1938},
+  volume  = {78},
+  number  = {4},
+  pages   = {551--572}
 }
 
-% Artigo em periódico internacional
-@article{LeCun2015,
-  author  = {Yann LeCun and Yoshua Bengio and Geoffrey Hinton},
-  title   = {Deep Learning},
-  journal = {Nature},
-  year    = {2015},
-  volume  = {521},
-  number  = {7553},
-  pages   = {436--444},
-  doi     = {10.1038/nature14539}
+@article{Hill1995,
+  author  = {Theodore P. Hill},
+  title   = {A statistical derivation of the significant-digit law},
+  journal = {Statistical Science},
+  year    = {1995},
+  volume  = {10},
+  number  = {4},
+  pages   = {354--363},
+  doi     = {10.1214/ss/1177009869}
 }
 
-% Artigo com DOI
-@article{Kitchenham2004,
-  author  = {Barbara Kitchenham},
-  title   = {Procedures for Performing Systematic Reviews},
-  journal = {Keele University Technical Report},
-  year    = {2004},
-  volume  = {33},
-  pages   = {1--26}
+@article{Shannon1948,
+  author  = {Claude E. Shannon},
+  title   = {A mathematical theory of communication},
+  journal = {Bell System Technical Journal},
+  year    = {1948},
+  volume  = {27},
+  number  = {3},
+  pages   = {379--423},
+  doi     = {10.1002/j.1538-7305.1948.tb01338.x}
 }
 
-
-% ---------------------------------------------------------------
-% EXEMPLOS DE ARTIGOS EM ANAIS DE EVENTOS
-% Formato ABNT: SOBRENOME, Nome. Titulo. In: EVENTO, Local. Anais. Editora, Ano.
-% ---------------------------------------------------------------
-
-% Artigo em congresso nacional
-@inproceedings{Oliveira2023,
-  author    = {Ana Paula Oliveira and Carlos Eduardo Ferreira},
-  title     = {Uma abordagem baseada em microsserviços para sistemas de e-commerce},
-  booktitle = {Anais do Simpósio Brasileiro de Engenharia de Software},
-  year      = {2023},
-  address   = {Campo Grande},
-  pages     = {112--121},
-  publisher = {SBC},
-  doi       = {10.5753/sbes.2023.00015}
+@article{Mosimann1995,
+  author  = {James E. Mosimann and Claire V. Wiseman and Ruth E. Edelman},
+  title   = {Data fabrication: Can people generate random digits?},
+  journal = {Accountability in Research},
+  year    = {1995},
+  volume  = {4},
+  number  = {1},
+  pages   = {31--55},
+  doi     = {10.1080/08989629508573866}
 }
 
-% Artigo em congresso internacional
-@inproceedings{Chen2016,
-  author    = {Tianqi Chen and Carlos Guestrin},
-  title     = {{XGBoost}: A Scalable Tree Boosting System},
-  booktitle = {Proceedings of the 22nd ACM SIGKDD International Conference on Knowledge Discovery and Data Mining},
-  year      = {2016},
-  address   = {San Francisco},
-  pages     = {785--794},
-  publisher = {ACM},
-  doi       = {10.1145/2939672.2939785}
+@article{Simonsohn2013,
+  author  = {Uri Simonsohn},
+  title   = {Just post it: The lesson from two cases of fabricated data detected by statistics alone},
+  journal = {Psychological Science},
+  year    = {2013},
+  volume  = {24},
+  number  = {10},
+  pages   = {1875--1888},
+  doi     = {10.1177/0956797613480366}
 }
 
+% --- GRIM e SPRITE ---
 
-% ---------------------------------------------------------------
-% EXEMPLOS DE DISSERTACOES E TESES
-% Formato ABNT: SOBRENOME, Nome. Titulo. Ano. Dissertacao/Tese - Instituicao, Local, Ano.
-% ---------------------------------------------------------------
+@article{BrownHeathers2017,
+  author  = {Nicholas J. L. Brown and James A. J. Heathers},
+  title   = {The {GRIM} test: A simple technique detects numerous anomalies in the reporting of results in psychology},
+  journal = {Social Psychological and Personality Science},
+  year    = {2017},
+  volume  = {8},
+  number  = {4},
+  pages   = {363--369},
+  doi     = {10.1177/1948550616673876}
+}
 
-% Dissertação de mestrado
-@mastersthesis{Santos2021,
-  author  = {Pedro Henrique Santos},
-  title   = {Análise de desempenho de algoritmos de aprendizado de máquina aplicados à detecção de fraudes em transações financeiras},
-  school  = {Universidade de São Paulo},
+% --- Machine learning e anomalias ---
+
+@article{Pedregosa2011,
+  author  = {Fabian Pedregosa and Gaël Varoquaux and Alexandre Gramfort and Vincent Michel and
+             Bertrand Thirion and Olivier Grisel and Mathieu Blondel and Peter Prettenhofer and
+             Ron Weiss and Vincent Dubourg and Jake Vanderplas and Alexandre Passos and
+             David Cournapeau and Matthieu Brucher and Matthieu Perrot and Édouard Duchesnay},
+  title   = {Scikit-learn: Machine learning in {Python}},
+  journal = {Journal of Machine Learning Research},
+  year    = {2011},
+  volume  = {12},
+  pages   = {2825--2830}
+}
+
+@article{AguilarMedina2023,
+  author  = {Diana Laura Aguilar and Miguel Angel Medina-Pérez and Octavio Loyola-González and
+             Kim-Kwang Raymond Choo and Edoardo Bucheli-Susarrey},
+  title   = {Towards an interpretable autoencoder: A decision-tree-based autoencoder and its application in anomaly detection},
+  journal = {IEEE Transactions on Dependable and Secure Computing},
+  year    = {2023},
+  volume  = {20},
+  number  = {3},
+  pages   = {2021--2038},
+  doi     = {10.1109/TDSC.2022.3148331}
+}
+
+% --- Integridade científica e forense numérica ---
+
+@article{CroneGreen2025,
+  author  = {Gabriel Crone and Christopher D. Green},
+  title   = {Tools of the data detective: A review of statistical methods to detect data and result anomalies in psychology},
+  journal = {Theory \& Psychology},
+  year    = {2025},
+  doi     = {10.1177/09593543241311861}
+}
+
+@article{Schumm2021,
+  author  = {Walter R. Schumm and Duane W. Crawford and Lorenza Lockett and
+             Abdullah A. A. A. Al-Rashed and Asma bin Ateeq},
+  title   = {Nine ways to detect possible scientific misconduct in research with small ({N} < 200) samples},
+  journal = {Psychology Research and Applications},
   year    = {2021},
-  address = {São Paulo},
-  type    = {Dissertação (Mestrado em Ciência da Computação)}
+  volume  = {3},
+  number  = {2},
+  pages   = {1--18},
+  doi     = {10.22606/PRA.2021.32001}
 }
 
-% Tese de doutorado
-@phdthesis{Ferreira2019,
-  author  = {Juliana Cristina Ferreira},
-  title   = {Modelos de deep learning para processamento de linguagem natural em português brasileiro},
-  school  = {Universidade Estadual de Campinas},
-  year    = {2019},
-  address = {Campinas},
-  type    = {Tese (Doutorado em Ciência da Computação)}
+@article{Schumm2023,
+  author  = {Walter R. Schumm and Duane W. Crawford and Lorenza Lockett and
+             Abdullah A. A. A. Al-Rashed and Asma bin Ateeq},
+  title   = {Research anomalies in criminology: How serious? How extensive over time? And who was responsible?},
+  journal = {Accountability in Research},
+  year    = {2023},
+  doi     = {10.1080/08989621.2023.2241127}
+}
+
+@article{Ustinova2022,
+  author  = {Yana Ustinova},
+  title   = {The impact of accounting fraud which leads to financial crimes: accounting fraud},
+  journal = {SHS Web of Conferences},
+  year    = {2022},
+  doi     = {10.1007/978-3-031-29090-9_11}
+}
+
+% --- Aplicações de Benford ---
+
+@article{ErginErturan2021,
+  author  = {Emre Ergin and İlkay Ejder Erturan},
+  title   = {Is {Benford's} law effective in fraud detection for expense cycle?},
+  journal = {Marmara Üniversitesi İktisadi ve İdari Bilimler Dergisi},
+  year    = {2021},
+  volume  = {43},
+  number  = {2},
+  pages   = {186--207},
+  doi     = {10.14780/MUIIBD.854444}
+}
+
+@article{SameeRad2021,
+  author  = {Mehdi Samee Rad and Ali Amiri and Mohammad Hossein Ranjbar and Hojatollah Salari},
+  title   = {Predictability of financial statements fraud-risk using {Benford's} law},
+  journal = {Cogent Economics \& Finance},
+  year    = {2021},
+  volume  = {9},
+  number  = {1},
+  doi     = {10.1080/23322039.2021.1889756}
+}
+
+@article{Balashov2021,
+  author  = {Vadim S. Balashov and Yuxing Yan and Xiaodi Zhu},
+  title   = {Using the {Newcomb--Benford} law to study the association between a country's {COVID-19} reporting accuracy and its development},
+  journal = {Scientific Reports},
+  year    = {2021},
+  volume  = {11},
+  number  = {23406},
+  doi     = {10.1038/S41598-021-02367-Z}
+}
+
+@article{Vicic2022,
+  author  = {Jernej Vičič and Aleksandar Tošić},
+  title   = {Application of {Benford's} law on cryptocurrencies},
+  journal = {Journal of Theoretical and Applied Electronic Commerce Research},
+  year    = {2022},
+  volume  = {17},
+  number  = {1},
+  pages   = {313--328},
+  doi     = {10.3390/JTAER17010016}
+}
+
+% --- Trabalhos relacionados principais ---
+
+@article{Ndibe2025,
+  author  = {Ogochukwu Susan Ndibe},
+  title   = {Integrating machine learning with digital forensics to enhance anomaly detection and mitigation strategies},
+  journal = {International Journal of Research Publication and Reviews},
+  year    = {2025},
+  volume  = {6},
+  number  = {5},
+  doi     = {10.55248/GENGPI.6.0525.1992}
+}
+
+@article{Sushkov2023,
+  author  = {Viktor M. Sushkov and Pavel Y. Leonov and Olga Nadezhina and Irina Y. Blagova},
+  title   = {Integrating data mining techniques for fraud detection in financial control processes},
+  journal = {International Journal of Technology},
+  year    = {2023},
+  volume  = {14},
+  number  = {8},
+  pages   = {1718--1728},
+  doi     = {10.14716/IJTECH.V14I8.6830}
 }
 
 
 % ---------------------------------------------------------------
-% EXEMPLOS DE SITES E RECURSOS ONLINE
-% Formato ABNT: AUTOR ou ORGANIZACAO. Titulo. Ano. Disponivel em: URL. Acesso em: data.
+% ARTIGOS EM ANAIS DE EVENTOS
+% Formato ABNT: SOBRENOME, Nome. Título. In: EVENTO, Local. Anais. Editora, Ano. p. XX–YY.
 % ---------------------------------------------------------------
 
-% Site institucional
-@misc{IBGE2024,
-  author = {{IBGE}},
-  title  = {Pesquisa Nacional por Amostra de Domicílios Contínua -- {PNAD} Contínua},
-  year   = {2024},
-  url    = {https://www.ibge.gov.br/estatisticas/sociais/trabalho/9171-pesquisa-nacional-por-amostra-de-domicilios-continua-mensal.html},
-  note   = {Acesso em: 15 jan. 2025}
+@inproceedings{Liu2008,
+  author    = {Fei Tony Liu and Kai Ming Ting and Zhi-Hua Zhou},
+  title     = {Isolation forest},
+  booktitle = {Proceedings of the 8th {IEEE} International Conference on Data Mining ({ICDM})},
+  year      = {2008},
+  address   = {Pisa},
+  pages     = {413--422},
+  publisher = {IEEE},
+  doi       = {10.1109/ICDM.2008.17}
 }
 
-% Documentação técnica online
-@misc{ReactDocs2025,
-  author = {{Meta}},
-  title  = {React -- A JavaScript library for building user interfaces},
-  year   = {2025},
-  url    = {https://react.dev},
-  note   = {Acesso em: 20 jan. 2025}
-}
-
-% Artigo em blog técnico
-@misc{Fowler2014,
-  author = {Martin Fowler},
-  title  = {Microservices: a definition of this new architectural term},
-  year   = {2014},
-  url    = {https://martinfowler.com/articles/microservices.html},
-  note   = {Acesso em: 10 fev. 2025}
+@inproceedings{Heathers2018,
+  author    = {James A. J. Heathers and Jordan Anaya and Tim van der Zee and Nicholas J. L. Brown},
+  title     = {Recovering data from summary statistics: Sample parameter reconstruction via iterative techniques ({SPRITE})},
+  booktitle = {PeerJ Preprints},
+  year      = {2018},
+  doi       = {10.7287/peerj.preprints.26968v1}
 }
 
 
 % ---------------------------------------------------------------
-% EXEMPLOS DE MANUAIS E DOCUMENTACAO TECNICA
-% Formato ABNT: ORGANIZACAO. Titulo. Local, Ano.
+% NOTAS TÉCNICAS E DOCUMENTAÇÃO
+% Formato ABNT: AUTOR. Título. Local: Instituição, Ano. (Nota técnica / Relatório).
 % ---------------------------------------------------------------
 
-@manual{ABNT2018,
-  organization = {{Associação Brasileira de Normas Técnicas}},
-  title        = {{NBR} 6023: informação e documentação --- referências --- elaboração},
-  year         = {2018},
-  address      = {Rio de Janeiro}
+@misc{Ng2011,
+  author = {Andrew Ng},
+  title  = {Sparse autoencoder},
+  year   = {2011},
+  note   = {CS294A Lecture Notes. Stanford University, Stanford},
+  url    = {https://web.stanford.edu/class/cs294a/sparseAutoencoder.pdf}
 }
-
-@manual{ISO25010,
-  organization = {{International Organization for Standardization}},
-  title        = {{ISO/IEC} 25010:2011 --- Systems and software engineering --- Systems and software Quality Requirements and Evaluation ({SQuaRE}) --- System and software quality models},
-  year         = {2011},
-  address      = {Geneva}
-}
-
-
-% ===============================================================
-% DICAS PARA O ALUNO:
-% ===============================================================
-% 1. Use chaves consistentes (ex: Sobrenome+Ano: Wazlawick2020)
-% 2. Preencha todos os campos obrigatórios para cada tipo
-% 3. Para sites, sempre inclua a data de acesso no campo "note"
-% 4. Use {} ao redor de siglas e nomes próprios para preservar
-%    a capitalização (ex: {IBGE}, {XGBoost})
-% 5. Para autores corporativos, use chaves duplas: {{Nome}}
-% 6. Compile com: pdflatex -> bibtex -> pdflatex -> pdflatex
-% ===============================================================

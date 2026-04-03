@@ -1,0 +1,553 @@
+% ---------------------------------------------------------------
+% TEMPLATE TCC1 - SENAC SANTO AMARO
+% ---------------------------------------------------------------
+% Trabalho de Conclusão de Curso 1
+% Elaborado para apresentação da proposta inicial do TCC
+% Estrutura: 4 capítulos (Introdução, Revisão Bibliográfica,
+%            Desenvolvimento, Referências Bibliográficas)
+% ---------------------------------------------------------------
+
+\documentclass[
+    12pt,                % tamanho da fonte
+    openright,           % capítulos começam em página ímpar
+    oneside,             % para impressão em apenas um lado do papel
+    a4paper,             % tamanho do papel
+    english,             % idioma adicional
+    brazil               % idioma principal
+]{abntex2}
+
+% ---------------------------------------------------------------
+% PACOTES
+% ---------------------------------------------------------------
+\usepackage{lmodern}                % Fonte Latin Modern
+\usepackage[T1]{fontenc}            % Seleção de códigos de fonte
+\usepackage[utf8]{inputenc}         % Codificação do documento
+\usepackage{lastpage}               % Usado pela Ficha catalográfica
+\usepackage{indentfirst}            % Indenta o primeiro parágrafo
+\usepackage{color}                  % Controle de cores
+\usepackage{graphicx}               % Inclusão de gráficos
+\usepackage{microtype}              % Melhorias de justificação
+\usepackage{float}                  % Para posicionamento de figuras
+\usepackage{booktabs}               % Tabelas profissionais
+\usepackage{multirow}               % Células mescladas em tabelas
+\usepackage{longtable}              % Tabelas longas
+\usepackage{amsmath,amssymb}        % Símbolos matemáticos
+\usepackage{pgfgantt}               % Diagramas de Gantt
+\usepackage[brazilian,hyperpageref]{backref}  % Páginas com citações
+\usepackage[alf]{abntex2cite}       % Citações ABNT
+
+% ---------------------------------------------------------------
+% CONFIGURAÇÕES DO PDF
+% ---------------------------------------------------------------
+\makeatletter
+\hypersetup{
+    pdftitle={\@title},
+    pdfauthor={\@author},
+    pdfsubject={TCC1 - SENAC Santo Amaro},
+    pdfcreator={LaTeX with abnTeX2},
+    pdfkeywords={tcc}{senac}{santo amaro}{trabalho de conclusão},
+    colorlinks=true,        % false: links em caixas; true: links coloridos
+    linkcolor=blue,         % cor dos links internos
+    citecolor=blue,         % cor dos links para bibliografia
+    filecolor=magenta,      % cor dos links para arquivos
+    urlcolor=blue,
+    bookmarksdepth=4
+}
+\makeatother
+
+% ---------------------------------------------------------------
+% CONFIGURAÇÕES DE APARÊNCIA DO PDF FINAL
+% ---------------------------------------------------------------
+\definecolor{blue}{RGB}{41,5,195}
+
+% ---------------------------------------------------------------
+% INFORMAÇÕES DO DOCUMENTO
+% ---------------------------------------------------------------
+\titulo{FakeNumDetect: Biblioteca Python para Detecção de Anomalias em Dados Numéricos Fabricados usando Métodos Estatísticos e Machine Learning}
+\autor{Giovanna Paiva Alves}
+\local{São Paulo}
+\data{2026}
+\orientador{Prof. Afonso César Lelis Brandão}
+% \coorientador{Prof. Nome do Coorientador} % Descomente se houver coorientador
+
+\instituicao{%
+  SENAC -- Serviço Nacional de Aprendizagem Comercial
+  \par
+  Unidade Santo Amaro
+  \par
+  Curso de Bacharelado em Ciência da Computação
+}
+
+\tipotrabalho{Trabalho de Conclusão de Curso I}
+
+\preambulo{Proposta de Trabalho de Conclusão de Curso apresentado ao SENAC Santo Amaro como requisito parcial para aprovação na disciplina de TCC1 do curso de Bacharelado em Ciência da Computação.}
+
+% ---------------------------------------------------------------
+% COMPILA O ÍNDICE
+% ---------------------------------------------------------------
+\makeindex
+
+% ---------------------------------------------------------------
+% INÍCIO DO DOCUMENTO
+% ---------------------------------------------------------------
+\begin{document}
+
+% Seleciona o idioma do documento
+\selectlanguage{brazil}
+
+% Retira espaço extra obsoleto entre as frases
+\frenchspacing
+
+% ---------------------------------------------------------------
+% ELEMENTOS PRÉ-TEXTUAIS
+% ---------------------------------------------------------------
+\pretextual
+
+% ---------------------------------------------------------------
+% CAPA
+% ---------------------------------------------------------------
+\imprimircapa
+
+% ---------------------------------------------------------------
+% FOLHA DE ROSTO
+% ---------------------------------------------------------------
+\imprimirfolhaderosto
+
+% ---------------------------------------------------------------
+% RESUMO
+% ---------------------------------------------------------------
+\begin{resumo}
+Este documento apresenta a proposta inicial do Trabalho de Conclusão de Curso (TCC1) desenvolvido no SENAC Santo Amaro. O objetivo deste trabalho é [descrever brevemente o objetivo principal do TCC]. A justificativa para este estudo baseia-se em [descrever brevemente a justificativa]. A revisão bibliográfica abrange [mencionar os principais tópicos]. Como solução proposta, pretende-se [descrever brevemente a solução]. Este trabalho está organizado em três capítulos que apresentam a introdução ao tema, a revisão bibliográfica que fundamenta a pesquisa, o desenvolvimento com a solução proposta e o cronograma de trabalho, seguidos das referências bibliográficas.
+
+\vspace{\onelineskip}
+
+\noindent
+\textbf{Palavras-chave}: palavra1. palavra2. palavra3. palavra4. palavra5.
+\end{resumo}
+
+
+% ---------------------------------------------------------------
+% LISTA DE ILUSTRAÇÕES
+% ---------------------------------------------------------------
+% \pdfbookmark[0]{\listfigurename}{lof}
+% \listoffigures*
+% \cleardoublepage
+
+% ---------------------------------------------------------------
+% LISTA DE TABELAS
+% ---------------------------------------------------------------
+% \pdfbookmark[0]{\listtablename}{lot}
+% \listoftables*
+% \cleardoublepage
+
+% ---------------------------------------------------------------
+% SUMÁRIO
+% ---------------------------------------------------------------
+\pdfbookmark[0]{\contentsname}{toc}
+\tableofcontents*
+\cleardoublepage
+
+% ---------------------------------------------------------------
+% ELEMENTOS TEXTUAIS
+% ---------------------------------------------------------------
+\textual
+
+% ===============================================================
+% CAPÍTULO 1 - INTRODUÇÃO
+% ===============================================================
+\chapter{Introdução}
+\label{cap:introducao}
+
+A fabricação e manipulação de dados numéricos representa um problema crescente em múltiplos domínios, desde fraudes fiscais e contábeis até a falsificação de resultados em pesquisas científicas. Este trabalho propõe o desenvolvimento da \textbf{FakeNumDetect}, uma biblioteca open-source em Python que unifica diversas técnicas estatísticas e de aprendizado de máquina para detecção de anomalias em dados numéricos potencialmente fabricados.
+
+% ---------------------------------------------------------------
+\section{Contexto}
+\label{sec:contexto}
+
+A integridade de dados numéricos é um requisito fundamental em domínios como auditoria fiscal, pesquisa científica e jornalismo de dados. A fabricação e a manipulação de valores numéricos são práticas documentadas e recorrentes: no campo científico, estudos estimam que entre 2\% e 10\% das publicações contêm dados fabricados ou significativamente manipulados \cite{Simonsohn2013}, comprometendo a reprodutibilidade do conhecimento produzido. No âmbito financeiro e fiscal, a adulteração de valores em notas fiscais, balanços e contratos gera perdas estimadas em cerca de 5\% da receita anual das organizações \cite{Ustinova2022}. Ambos os cenários exigem ferramentas capazes de detectar anomalias numéricas de forma sistemática e auditável.
+Para enfrentar esse problema, a literatura consolidou um conjunto de técnicas de forense numérica. A Lei de Benford \cite{Benford1938} estabelece que, em conjuntos de dados gerados por processos naturais, o primeiro dígito significativo segue uma distribuição logarítmica previsível — desvios dessa distribuição sinalizam possível manipulação. Os testes GRIM (\textit{Granularity-Related Inconsistency of Means}) e SPRITE (\textit{Sample Parameter Reconstruction via Iterative Techniques}) verificam se as estatísticas descritivas reportadas em artigos científicos são matematicamente compatíveis com o tamanho e a granularidade da amostra declarada \cite{BrownHeathers2017, Heathers2018}. Complementarmente, métodos baseados em aprendizado de máquina, como o Isolation Forest e os Autoencoders, permitem identificar padrões anômalos sutis que escapam aos testes estatísticos clássicos \cite{Ndibe2025}.
+Apesar da maturidade individual dessas técnicas, \citeonline{CroneGreen2025} demonstram, em revisão sistemática recente, que cada ferramenta apresenta limitações próprias quando aplicada isoladamente: algumas exigem tamanhos de amostra mínimos, outras são sensíveis ao tipo de escala utilizada, e nenhuma oferece, por si só, um veredicto integrado sobre a confiabilidade de um conjunto de dados. Essa fragmentação impõe ao analista a necessidade de recorrer a múltiplas ferramentas distintas, interpretar resultados heterogêneos sem critério unificado e produzir relatórios manualmente — o que torna o processo caro, sujeito a erros e inacessível a profissionais sem formação estatística aprofundada.
+No ecossistema Python, essa lacuna é evidente: ferramentas disponíveis no PyPI, como \textit{benfordslaw} e \textit{benford\_py}, implementam exclusivamente a Lei de Benford, sem integração com GRIM, SPRITE, análise de entropia ou modelos de aprendizado de máquina. Não existe, até o momento, uma biblioteca que reúna essas abordagens em uma API padronizada, com pontuação de confiança unificada e geração automática de relatórios forenses. É nessa lacuna que o presente trabalho se insere, propondo o desenvolvimento da \textbf{FakeNumDetect}.
+
+% ---------------------------------------------------------------
+\section{Justificativa}
+\label{sec:justificativa}
+
+A realização deste trabalho justifica-se sob três perspectivas:
+
+\begin{itemize}
+    \item \textbf{Relevância acadêmica}: o projeto integra conhecimentos de Estatística, Inteligência Artificial e Engenharia de Software em um produto publicável no PyPI, representando uma contribuição original ao ecossistema científico Python. Uma pesquisa extensiva no PyPI, GitHub e bases acadêmicas (BDTD, Google Scholar) confirmou que nenhuma biblioteca equivalente existe: ferramentas como \textit{benfordslaw} e \textit{benford\_py} implementam apenas a Lei de Benford, sem integração com outros métodos forenses ou modelos de aprendizado de máquina.
+    \item \textbf{Relevância prática}: a biblioteca será útil a auditores fiscais, pesquisadores, jornalistas de dados e profissionais de compliance que precisam verificar a autenticidade de conjuntos numéricos. A geração automática de relatórios forenses com pontuação de confiança torna a ferramenta acessível mesmo a usuários sem expertise estatística aprofundada.
+    \item \textbf{Lacuna identificada}: nenhuma solução atual combina a Lei de Benford, os testes GRIM e SPRITE, análise de entropia, detecção de duplicação e modelos de aprendizado de máquina (Isolation Forest e Autoencoder) em uma única API padronizada, com interface estilo scikit-learn e suporte a relatórios HTML/PDF.
+\end{itemize}
+
+% ---------------------------------------------------------------
+\section{Objetivo}
+\label{sec:objetivo}
+
+\subsection{Objetivo principal}
+
+Desenvolver uma biblioteca open-source em Python, denominada FakeNumDetect, que unifique múltiplas técnicas estatísticas e de aprendizado de máquina para detecção de anomalias em dados numéricos fabricados ou manipulados, disponibilizando-a publicamente no repositório PyPI com documentação completa e validação experimental.
+
+\subsection{Objetivos secundários}
+
+\begin{enumerate}
+    \item Implementar os testes estatísticos de Lei de Benford (1º e 2º dígitos) com métricas de conformidade (qui-quadrado, MAD e Z-estatística);
+    \item Desenvolver implementações em Python dos testes GRIM e SPRITE para verificação de consistência de estatísticas reportadas;
+    \item Criar módulos de análise de entropia de Shannon, teste de terminação de dígitos e detecção de padrões de duplicação;
+    \item Integrar modelos de aprendizado de máquina — Isolation Forest e Sparse Autoencoder — para identificação de padrões sutis de fabricação;
+    \item Projetar um sistema de pontuação unificado (0--100) que agregue os resultados de todas as técnicas com pesos configuráveis;
+    \item Implementar gerador automático de relatórios forenses em HTML e PDF com visualizações gráficas;
+    \item Publicar a biblioteca no PyPI com cobertura de testes superior a 90\%;
+    \item Validar a abordagem multi-técnica em datasets reais de auditoria contábil, pesquisas científicas e dados eleitorais, comparando sua eficácia com a de técnicas aplicadas individualmente.
+\end{enumerate}
+
+% ===============================================================
+% CAPÍTULO 2 - REVISÃO BIBLIOGRÁFICA
+% ===============================================================
+\chapter{Revisão Bibliográfica}
+\label{cap:revisao}
+
+Este capítulo apresenta o embasamento teórico e o estado da arte que fundamentam o desenvolvimento da FakeNumDetect. O referencial teórico cobre os principais métodos de forense numérica e as técnicas de aprendizado de máquina que serão integrados na biblioteca. Em seguida, descreve-se a metodologia de pesquisa bibliográfica adotada, aprofundam-se os conceitos técnicos centrais do trabalho e, por fim, analisam-se os trabalhos relacionados mais próximos ao problema proposto.
+
+% ---------------------------------------------------------------
+\section{Referencial teórico}
+\label{sec:referencial}
+
+A detecção de anomalias em dados numéricos apoia-se em dois pilares complementares: métodos estatísticos de forense numérica, desenvolvidos ao longo de décadas de pesquisa em auditoria e integridade científica, e técnicas modernas de aprendizado de máquina, capazes de identificar padrões anômalos em espaços de alta dimensionalidade. As subseções a seguir apresentam os conceitos fundamentais de cada pilar.
+
+\subsection{Forense numérica e integridade de dados}
+
+A forense numérica é o campo dedicado a identificar, por meio de análise estatística e computacional, evidências de fabricação ou manipulação em conjuntos de dados numéricos. Sua aplicação abrange auditoria fiscal, verificação de integridade científica e jornalismo de dados investigativo. Conforme apontam \citeonline{CroneGreen2025}, a área dispõe atualmente de um conjunto robusto de ferramentas estatísticas — cada uma projetada para detectar um padrão específico de anomalia —, mas nenhuma delas oferece, isoladamente, uma avaliação abrangente da confiabilidade de um conjunto de dados.
+A necessidade de múltiplas perspectivas analíticas foi reforçada empiricamente por \citeonline{Schumm2021}, que aplicaram nove técnicas distintas de detecção em artigos científicos com amostras pequenas e concluíram que a combinação de métodos produz diagnósticos mais robustos do que qualquer técnica individual. Esse achado é diretamente relevante para a proposta deste trabalho: a FakeNumDetect foi concebida precisamente para operacionalizar essa abordagem multi-técnica em uma API única.
+
+\subsection{Lei de Benford}
+
+A Lei de Benford, formalizada por \citeonline{Benford1938} e matematicamente fundamentada por \citeonline{Hill1995}, estabelece que, em conjuntos de dados gerados por processos naturais e que abrangem várias ordens de grandeza, o primeiro dígito significativo \(d\) (onde \(1 \leq d \leq 9\)) ocorre com probabilidade dada por:
+
+\begin{equation}
+    P(d) = \log_{10}\!\left(1 + \frac{1}{d}\right)
+\end{equation}
+
+Assim, o dígito 1 aparece como primeiro dígito em aproximadamente 30,1\% dos casos, enquanto o dígito 9 ocorre em apenas 4,6\%. Dados fabricados por humanos tendem a não seguir essa distribuição, pois as pessoas intuitivamente distribuem os dígitos de forma mais uniforme. A conformidade com a lei é verificada por meio de testes estatísticos como o qui-quadrado, o desvio absoluto médio (MAD) e a Z-estatística \cite{Nigrini2012}.
+A lei tem sido aplicada com sucesso em domínios variados, como detecção de fraude em demonstrações financeiras \cite{SameeRad2021}, verificação de dados de saúde pública \cite{Balashov2021} e auditoria de transações em criptomoedas \cite{Vicic2022}. No entanto, sua eficácia depende criticamente das características do conjunto de dados: \citeonline{ErginErturan2021} demonstram que Benford não é aplicável a dados de ciclo de despesas com distribuições restritas, o que reforça a necessidade de combinar o método com outras técnicas de detecção.
+
+\subsection{Teste GRIM}
+
+O teste GRIM (\textit{Granularity-Related Inconsistency of Means}), proposto por \citeonline{BrownHeathers2017}, verifica se uma média reportada é matematicamente possível dado o tamanho da amostra \(N\) e a granularidade dos itens medidos. Para dados inteiros ou de escala Likert, a média deve corresponder a um dos \(N + 1\) valores representáveis com a precisão declarada. Se a média reportada não pertence a esse conjunto, há necessariamente um erro de cálculo ou fabricação.
+Em estudo aplicado a 260 artigos de psicologia, \citeonline{BrownHeathers2017} identificaram que aproximadamente metade dos artigos testáveis continha ao menos uma média GRIM-inconsistente, e mais de 20\% apresentavam múltiplas inconsistências. A simplicidade computacional do teste — que requer apenas o valor da média, o número de itens e o tamanho da amostra — o torna especialmente adequado para implementação em uma biblioteca de uso geral como a FakeNumDetect.
+
+\subsection{Teste SPRITE}
+
+O SPRITE (\textit{Sample Parameter Reconstruction via Iterative Techniques}), desenvolvido por \citeonline{Heathers2018}, é uma extensão do GRIM que verifica a consistência mútua entre múltiplas estatísticas descritivas reportadas simultaneamente — média, desvio padrão, mínimo, máximo e tamanho da amostra. O método utiliza busca iterativa para tentar reconstruir um conjunto de dados que produza exatamente as estatísticas declaradas. A ausência de qualquer conjunto válido constitui evidência de inconsistência nos dados reportados.
+\citeonline{Schumm2023} aplicaram o SPRITE a artigos de criminologia e relataram que, em amostras maiores, o teste apresenta limitações de especificidade. Essa observação é incorporada ao design da FakeNumDetect: o SPRITE será apresentado ao usuário com indicação explícita do intervalo de tamanho amostral em que seus resultados são mais confiáveis, e seu peso no score unificado será ajustável conforme o contexto de análise.
+
+\subsection{Análise de entropia de Shannon}
+A entropia de Shannon \cite{Shannon1948} mede o grau de aleatoriedade na distribuição de símbolos de um conjunto. Aplicada à distribuição de dígitos (0--9) em um conjunto de dados numéricos, é calculada como:
+
+\begin{equation}
+    H = -\sum_{x=0}^{9} p(x) \cdot \log_2 p(x)
+\end{equation}
+
+onde \(p(x)\) é a frequência relativa de cada dígito. Dados genuinamente aleatórios tendem a apresentar entropia próxima do máximo teórico (\(\log_2 10 \approx 3{,}32\) bits), enquanto dados fabricados por humanos frequentemente exibem entropia anormalmente baixa — pela tendência de repetir certos dígitos — ou artificialmente elevada — por tentativas deliberadas de simular aleatoriedade \cite{Mosimann1995}.
+
+\subsection{Isolation Forest}
+
+O Isolation Forest, proposto por \citeonline{Liu2008}, é um algoritmo de detecção de anomalias baseado na premissa de que pontos anômalos são mais fáceis de isolar do que pontos normais em uma árvore de decisão aleatória. O algoritmo constrói um conjunto de árvores (\textit{forest}) que particionam aleatoriamente o espaço de atributos e mede o comprimento médio do caminho necessário para isolar cada observação: pontos que requerem poucas partições para serem isolados recebem scores de anomalia elevados.
+Na FakeNumDetect, o Isolation Forest será aplicado sobre o vetor de \textit{features} estatísticas extraídas de cada análise — distribuição de dígitos, entropia, assimetria, curtose — para capturar padrões sutis de fabricação que os testes individuais não detectam. \citeonline{AguilarMedina2023} demonstram que o Isolation Forest mantém desempenho competitivo frente a alternativas como One-Class SVM e Gaussian Mixture, com a vantagem adicional da escalabilidade para grandes volumes de dados.
+
+\subsection{Autoencoders para detecção de anomalias}
+
+Um autoencoder é uma rede neural treinada para reconstruir sua própria entrada por meio de uma representação compacta em camada latente \cite{Ng2011}. Quando treinado exclusivamente com dados considerados genuínos, o modelo aprende a representar os padrões normais com baixo erro de reconstrução. Dados anômalos — como conjuntos fabricados — produzem erros de reconstrução elevados, pois diferem dos padrões aprendidos durante o treinamento.
+\citeonline{Ndibe2025} demonstra que autoencoders integrados a fluxos de forense digital superam abordagens puramente baseadas em regras na detecção de ameaças com baixo volume de sinal. Na FakeNumDetect, um Sparse Autoencoder será empregado como complemento ao Isolation Forest, oferecendo uma segunda perspectiva de ML sobre o mesmo conjunto de \textit{features} estatísticas.
+
+% ---------------------------------------------------------------
+\section{Metodologia da pesquisa bibliográfica}
+\label{sec:metodologia_pesquisa}
+
+A pesquisa bibliográfica foi conduzida nas bases Google Scholar e ResearchRabbit. As buscas utilizaram os seguintes termos em inglês, de forma isolada e combinada usando técnica de funil: \textit{data fabrication detection}, \textit{numerical anomaly detection}, \textit{Benford's law fraud}, \textit{GRIM test}, \textit{SPRITE test}, \textit{forensic data analytics}, \textit{isolation forest anomaly}, \textit{autoencoder anomaly detection} e \textit{scientific misconduct statistics}.
+Foram adotados os seguintes critérios de inclusão: (i) publicações em inglês; (ii) período de 2021 a 2026 para os artigos principais de trabalhos relacionados; (iii) relevância temática direta com detecção de anomalias em dados numéricos tabulares, forense numérica ou aprendizado de máquina aplicado a integridade de dados. Foram excluídos trabalhos que aplicam Benford exclusivamente a domínios não tabulares (imagens, texto gerado por IA), 
+artigos anteriores a 2021 — salvo referências seminais insubstituíveis — e publicações sem revisão por pares.
+O processo resultou em 41 artigos triados, dos quais 3 foram selecionados como trabalhos relacionados principais, 8 compõem o referencial teórico e os demais foram excluídos por não atenderem aos critérios de inclusão ou por abordarem temas diferentes não relacionados.
+
+% ---------------------------------------------------------------
+\section{Fundamentos técnicos}
+\label{sec:fundamentos}
+
+Esta seção detalha os conceitos técnicos diretamente empregados na implementação da FakeNumDetect, 
+complementando o referencial teórico com aspectos de engenharia de software e design de API.
+
+\subsection{Design de API estilo scikit-learn}
+
+O scikit-learn \cite{Pedregosa2011} estabeleceu na comunidade Python um padrão de API para aprendizado de 
+máquina baseado em três operações principais: \texttt{fit()} para ajuste do modelo aos dados, \texttt{predict()} ou \texttt{transform()} para 
+aplicação do modelo, e \texttt{score()} para avaliação de desempenho. A consistência desse padrão permite que ferramentas distintas sejam 
+intercambiáveis em pipelines de análise. A FakeNumDetect adotará esse mesmo padrão — com a 
+interface \texttt{fit()}/\texttt{detect()}/\texttt{report()} — para garantir familiaridade imediata a usuários do ecossistema Python científico.
+
+\subsection{Score de confiança unificado}
+
+O score de confiança unificado (0--100) da FakeNumDetect será calculado como uma média ponderada dos 
+resultados individuais de cada técnica, onde os pesos refletem a capacidade discriminativa de cada método em 
+função das características do conjunto de dados analisado. Cada técnica produz um valor normalizado de suspeição, 
+que é então combinado por uma função de agregação configurável pelo usuário. Esse design permite que analistas com 
+conhecimento do domínio ajustem os pesos conforme a natureza dos dados — por exemplo, aumentando o peso do GRIM em 
+datasets de pesquisas com escalas Likert ou o peso de Benford em dados financeiros de larga escala.
+
+\subsection{Geração de relatórios forenses}
+
+Os relatórios forenses da FakeNumDetect serão gerados em HTML e PDF a partir de templates Jinja2, 
+incorporando visualizações produzidas com Matplotlib e Plotly. Cada relatório incluirá o score de 
+confiança unificado com interpretação textual, os resultados detalhados de cada técnica com seus 
+respectivos p-valores e métricas de desvio, gráficos de distribuição de dígitos comparados à distribuição 
+esperada por Benford, e uma seção de conclusão com indicação do nível de suspeita (baixo, moderado, alto, muito alto).
+
+% ---------------------------------------------------------------
+\section{Trabalhos relacionados}
+\label{sec:trabalhos_relacionados}
+
+Os três trabalhos apresentados a seguir foram selecionados por enfrentarem diretamente o mesmo problema 
+central da FakeNumDetect: a detecção automatizada de anomalias em dados numéricos por meio da combinação de 
+múltiplas técnicas analíticas. Cada um deles avança em relação ao uso isolado de uma única técnica, mas deixa 
+lacunas específicas que o presente trabalho se propõe a superar.
+
+\subsection{Trabalho 1: \textit{Tools of the data detective} (Crone e Green, 2025)}
+
+\citeonline{CroneGreen2025} enfrentaram o problema de avaliar sistematicamente o conjunto de ferramentas estatísticas disponíveis para detecção de fabricação de dados em pesquisas de psicologia. O trabalho realizou uma revisão abrangente de métodos como GRIM, SPRITE, análise de distribuição de dígitos, testes de variância e medidas de tamanho de efeito, avaliando as forças e limitações de cada ferramenta tanto na análise de dados brutos quanto de estatísticas resumidas reportadas em artigos.
+Os resultados demonstram que os testes de variância e as medidas de tamanho de efeito apresentam desempenho de bom a excelente na detecção de dados fabricados a partir de dados brutos, enquanto a análise de dígitos isolada performa próximo ao acaso — o que contradiz seu uso difundido como ferramenta diagnóstica única. Os autores concluem que nenhuma ferramenta individual é suficiente e que a combinação de múltiplos métodos é necessária para diagnósticos confiáveis.
+A limitação central do trabalho é seu caráter exclusivamente descritivo e de revisão: \citeonline{CroneGreen2025} avaliam ferramentas existentes, mas não propõem nenhuma implementação integrada, API, score unificado ou mecanismo de geração de relatórios. O analista que desejar aplicar os métodos combinados ainda precisa recorrer a implementações fragmentadas. O presente trabalho avança nesse ponto ao traduzir exatamente essa necessidade — identificada e documentada por Crone e Green — em uma biblioteca Python funcional, publicável e de uso imediato.
+
+\subsection{Trabalho 2: \textit{Integrating Machine Learning with Digital Forensics} (Ndibe, 2025)}
+\citeonline{Ndibe2025} abordou o problema de limitação das abordagens de forense digital tradicionais diante da crescente complexidade e volume de evidências digitais. O trabalho investigou a integração de modelos de aprendizado de máquina — especificamente autoencoders, random forests e redes LSTM — em fluxos de trabalho de forense computacional, com foco em detecção de anomalias em redes, ambientes de nuvem e sistemas industriais.
+Os resultados mostram que modelos de ML treinados para aprender o comportamento baseline de sistemas legítimos são capazes de detectar desvios com desempenho superior às abordagens baseadas em regras, especialmente em cenários com ataques de baixo sinal e ameaças não catalogadas previamente. O trabalho enfatiza ainda a importância de interpretabilidade e robustez adversarial para a adoção de ML em contextos forenses de alto risco.
+A limitação principal em relação ao escopo da FakeNumDetect é de domínio: \citeonline{Ndibe2025} concentra-se em forense de redes e sistemas cibernéticos, sem tratar de dados numéricos tabulares, forense científica ou auditoria contábil. Não há integração com testes estatísticos clássicos como Benford, GRIM ou SPRITE, nem geração de relatórios forenses padronizados. O presente trabalho se diferencia ao aplicar a mesma lógica de integração de ML em um domínio distinto — dados numéricos tabulares —, combinando-a com o arsenal de testes estatísticos de forense numérica que \citeonline{Ndibe2025} não contempla.
+
+\subsection{Trabalho 3: \textit{Integrating Data Mining Techniques for Fraud Detection} (Sushkov et al., 2023)}
+\citeonline{Sushkov2023} enfrentaram o problema das limitações práticas da Lei de Benford quando aplicada isoladamente em processos de controle financeiro. Os autores propuseram uma metodologia que combina os testes estatísticos de Benford — incluindo testes de primeiro dígito, segundo dígito e combinados — com algoritmos de clustering para identificar classes de transações suspeitas que o teste de Benford por si só não consegue isolar com precisão suficiente.
+A validação foi conduzida em dados reais de auditoria de uma empresa de construção de estradas, e os resultados demonstram que a abordagem combinada reduziu significativamente o volume de transações que exigem revisão manual, identificando um subconjunto restrito de transações altamente suspeitas em meio a um grande volume de registros. Os autores concluem que a integração de Benford com técnicas de mineração de dados é essencial para escalar a auditoria forense a contextos organizacionais complexos.
+As limitações do trabalho em relação à FakeNumDetect são três. Primeiro, a integração proposta é restrita a Benford com clustering, sem incorporação de GRIM, SPRITE, análise de entropia, teste de terminação ou modelos de ML como Isolation Forest e Autoencoder. Segundo, a metodologia é descrita como um processo manual de análise, sem implementação em uma biblioteca reutilizável com API padronizada. Terceiro, não há sistema de pontuação unificado nem geração automática de relatórios. O presente trabalho avança em todas essas dimensões: amplia o conjunto de técnicas integradas, encapsula a metodologia em uma API estilo scikit-learn e automatiza tanto o scoring quanto a geração de relatórios forenses.
+
+\vspace{0.5cm}
+
+A Tabela \ref{tab:trabalhos_relacionados} sintetiza as principais dimensões de comparação entre os trabalhos relacionados e a FakeNumDetect.
+
+\begin{table}[htb]
+    \centering
+    \caption{Comparação entre trabalhos relacionados e a FakeNumDetect}
+    \label{tab:trabalhos_relacionados}
+    \resizebox{\textwidth}{!}{%
+    \begin{tabular}{l|p{3cm}|p{3cm}|p{3cm}|p{3.5cm}}
+        \toprule
+        \textbf{Critério}
+            & \textbf{Crone e Green (2025)}
+            & \textbf{Ndibe (2025)}
+            & \textbf{Sushkov et al. (2023)}
+            & \textbf{FakeNumDetect (este trabalho)} \\
+        \midrule
+        Problema central
+            & Avaliação de ferramentas de detecção
+            & Forense digital em redes/sistemas
+            & Limitação de Benford em auditoria
+            & Ausência de API multi-técnica unificada \\
+        \midrule
+        Técnicas estatísticas
+            & GRIM, SPRITE, dígitos, variância
+            & Não aplicável (domínio de redes)
+            & Lei de Benford (1º e 2º dígito)
+            & Benford, GRIM, SPRITE, entropia, terminação \\
+        \midrule
+        Aprendizado de máquina
+            & Não aplicável
+            & Autoencoder, RF, LSTM
+            & Clustering (K-Means)
+            & Isolation Forest + Sparse Autoencoder \\
+        \midrule
+        Score unificado
+            & Não
+            & Não
+            & Não
+            & Sim (0--100, pesos configuráveis) \\
+        \midrule
+        API reutilizável
+            & Não (revisão teórica)
+            & Não (estudo de caso)
+            & Não (metodologia manual)
+            & Sim (PyPI, estilo scikit-learn) \\
+        \midrule
+        Relatórios automáticos
+            & Não
+            & Não
+            & Não
+            & Sim (HTML e PDF com visualizações) \\
+        \midrule
+        Validação empírica
+            & Revisão sistemática
+            & Estudos de caso em redes
+            & Auditoria em empresa real
+            & Datasets reais de 3 domínios distintos \\
+        \midrule
+        Limitação principal
+            & Não propõe implementação
+            & Domínio restrito a redes
+            & Técnica única, sem API
+            & --- \\
+        \bottomrule
+    \end{tabular}%
+    }
+    \legend{Fonte: Elaborado pela autora (2026)}
+\end{table}
+
+% ===============================================================
+% CAPÍTULO 3 - DESENVOLVIMENTO
+% ===============================================================
+\chapter{Desenvolvimento}
+\label{cap:desenvolvimento}
+
+Neste capítulo, apresenta-se a solução proposta para o problema identificado, bem como o cronograma de trabalho previsto para o desenvolvimento completo do projeto no TCC2.
+
+% ---------------------------------------------------------------
+\section{Solução proposta}
+\label{sec:solucao}
+
+Descreva detalhadamente a solução que será desenvolvida para resolver o problema apresentado na introdução. A descrição deve incluir:
+
+\begin{itemize}
+    \item \textbf{Visão geral da solução}: o que será desenvolvido (sistema, aplicativo, modelo, ferramenta, etc.);
+    \item \textbf{Arquitetura}: como os componentes da solução se organizam e interagem;
+    \item \textbf{Tecnologias e ferramentas}: quais linguagens, frameworks, bibliotecas, bancos de dados e ambientes serão utilizados, e por que foram escolhidos;
+    \item \textbf{Funcionalidades principais}: o que a solução fará para atender aos objetivos;
+    \item \textbf{Metodologia de desenvolvimento}: qual abordagem será utilizada (ágil, cascata, prototipação, etc.);
+    \item \textbf{Critérios de validação}: como será medido o sucesso da solução (métricas, testes, avaliação com usuários, etc.).
+\end{itemize}
+
+Utilize diagramas, fluxogramas ou mockups para ilustrar a solução. Exemplo de descrição de arquitetura:
+
+\textit{A solução proposta consiste em uma aplicação web composta por três camadas: front-end desenvolvido em React.js, back-end em Node.js com Express, e banco de dados PostgreSQL. A comunicação entre front-end e back-end será feita por meio de uma API REST.}
+
+% ---------------------------------------------------------------
+\section{Cronograma de trabalho}
+\label{sec:cronograma}
+
+O cronograma a seguir apresenta, no formato de diagrama de Gantt, as atividades previstas para o desenvolvimento do TCC2, distribuídas ao longo das semanas do semestre.
+
+\begin{figure}[htb]
+    \centering
+    \caption{Cronograma de atividades -- Diagrama de Gantt}
+    \label{fig:gantt}
+    \begin{ganttchart}[
+        hgrid,
+        vgrid,
+        x unit=0.72cm,
+        y unit title=0.6cm,
+        y unit chart=0.7cm,
+        title height=1,
+        bar height=0.5,
+        bar label font=\scriptsize,
+        title label font=\small,
+        milestone label font=\scriptsize\itshape,
+        group label font=\scriptsize\bfseries,
+        bar/.append style={fill=blue!40},
+        group/.append style={draw=black, fill=blue!70},
+        milestone/.append style={fill=red!70},
+    ]{1}{16}
+        % Título: semanas de 1 a 16
+        \gantttitle{Semanas}{16} \\
+        \gantttitlelist{1,...,16}{1} \\
+
+        % Grupo 1: Revisão e Planejamento
+        \ganttgroup{Fase 1: Planejamento}{1}{4} \\
+        \ganttbar{Revisão bibliográfica}{1}{3} \\
+        \ganttbar{Definição de requisitos}{2}{4} \\
+        \ganttbar{Projeto da arquitetura}{3}{4} \\
+        \ganttmilestone{Entrega do projeto}{4} \\
+
+        % Grupo 2: Desenvolvimento
+        \ganttgroup{Fase 2: Desenvolvimento}{5}{11} \\
+        \ganttbar{Implementação do módulo 1}{5}{7} \\
+        \ganttbar{Implementação do módulo 2}{7}{9} \\
+        \ganttbar{Integração dos módulos}{9}{11} \\
+        \ganttmilestone{Protótipo funcional}{11} \\
+
+        % Grupo 3: Testes e Finalização
+        \ganttgroup{Fase 3: Validação}{12}{16} \\
+        \ganttbar{Testes e validação}{12}{14} \\
+        \ganttbar{Ajustes e correções}{14}{15} \\
+        \ganttbar{Redação final do TCC2}{13}{16} \\
+        \ganttmilestone{Entrega final}{16}
+
+        % Ligações entre atividades
+        \ganttlink{elem2}{elem3}
+        \ganttlink{elem3}{elem4}
+        \ganttlink{elem4}{elem5}
+        \ganttlink{elem7}{elem8}
+        \ganttlink{elem8}{elem9}
+        \ganttlink{elem9}{elem10}
+        \ganttlink{elem12}{elem13}
+    \end{ganttchart}
+    \legend{Fonte: Elaborado pelo autor (2026)}
+\end{figure}
+
+\textbf{Instruções para personalização do cronograma}:
+\begin{itemize}
+    \item Ajuste o número de semanas conforme o calendário acadêmico do semestre;
+    \item Modifique as atividades de acordo com as etapas do seu projeto;
+    \item Os marcos (\textit{milestones}) indicam entregas importantes --- adapte-os às datas de avaliação;
+    \item As setas entre atividades indicam dependências --- uma atividade só inicia após a conclusão da anterior;
+    \item Utilize o diagrama como ferramenta de acompanhamento: atualize-o a cada reunião com o orientador.
+\end{itemize}
+
+% ---------------------------------------------------------------
+% ELEMENTOS PÓS-TEXTUAIS
+% ---------------------------------------------------------------
+\postextual
+
+% ===============================================================
+% CAPÍTULO 4 - REFERÊNCIAS BIBLIOGRÁFICAS
+% ===============================================================
+% As referências bibliográficas são geradas automaticamente a partir
+% do arquivo bibliografia.bib, seguindo o padrão ABNT (NBR 6023).
+%
+% COMO CITAR no texto:
+%   \cite{chave}         -> (SOBRENOME, ano) — citação indireta
+%   \citeonline{chave}   -> Sobrenome (ano) — citação direta no texto
+%
+% TIPOS DE REFERÊNCIA no arquivo .bib:
+%   @book        -> Livros
+%   @article     -> Artigos de periódicos
+%   @inproceedings -> Artigos em anais de eventos
+%   @mastersthesis -> Dissertações de mestrado
+%   @phdthesis   -> Teses de doutorado
+%   @misc        -> Sites, vídeos e outros materiais
+%   @manual      -> Documentação técnica
+%
+% Veja o arquivo bibliografia.bib para exemplos de cada tipo.
+% ---------------------------------------------------------------
+\bibliography{bibliografia}
+
+% ---------------------------------------------------------------
+% APÊNDICES (se necessário)
+% ---------------------------------------------------------------
+% \begin{apendicesenv}
+% \partapendices
+%
+% \chapter{Nome do Apêndice}
+% \label{ap:apendice1}
+%
+% Conteúdo do apêndice (material elaborado pelo próprio autor).
+%
+% \end{apendicesenv}
+
+% ---------------------------------------------------------------
+% ANEXOS (se necessário)
+% ---------------------------------------------------------------
+% \begin{anexosenv}
+% \partanexos
+%
+% \chapter{Nome do Anexo}
+% \label{an:anexo1}
+%
+% Conteúdo do anexo (material de terceiros).
+%
+% \end{anexosenv}
+
+\end{document}
